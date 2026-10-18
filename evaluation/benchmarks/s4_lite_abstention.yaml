@@ -1,0 +1,50 @@
+benchmark_version: "1.0.0"
+cases:
+  - case_id: abstention_001_normal_recommend
+    kind: full_corpus
+    description: Normal in-domain PyTorch learning request should produce at least one accepted recommendation.
+    intent:
+      topics: ["Deep Learning"]
+      skills: ["Python"]
+      prerequisites: []
+      framework_preferences: ["PyTorch"]
+      language: []
+      difficulty: unknown
+      learning_style: ["hands_on"]
+      time_budget: null
+      constraints: []
+    expected_status: OK
+    expected_error_code: null
+
+  - case_id: abstention_002_cooking_no_candidate
+    kind: full_corpus
+    description: Out-of-domain cooking request should terminate with NO_CANDIDATE.
+    intent:
+      topics: ["Cooking"]
+      skills: []
+      prerequisites: []
+      framework_preferences: []
+      language: []
+      difficulty: unknown
+      learning_style: []
+      time_budget: null
+      constraints: []
+    expected_status: ABSTAINED
+    expected_error_code: NO_CANDIDATE
+
+  - case_id: abstention_003_real_archived_subset
+    kind: controlled_resource_subset
+    description: Controlled functional test using only the real frozen tensor2tensor Resource and its canonical archived metadata Evidence.
+    resource_id: "github:94460704"
+    intent:
+      topics: ["Deep Learning"]
+      skills: []
+      prerequisites: []
+      framework_preferences: ["TensorFlow"]
+      language: []
+      difficulty: unknown
+      learning_style: []
+      time_budget: null
+      constraints: []
+    expected_status: ABSTAINED
+    expected_error_code: ALL_CANDIDATES_ABSTAINED

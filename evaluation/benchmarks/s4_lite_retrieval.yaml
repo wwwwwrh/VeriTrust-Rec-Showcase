@@ -1,0 +1,238 @@
+benchmark_version: "1.0.0"
+benchmark_status: human_confirmed
+evaluation_reference_time: "2026-09-16T00:00:00Z"
+retrieval_top_k: 10
+candidate_pool:
+  retriever_limit: 10
+  metadata_supplement_limit: 5
+cases:
+  - case_id: retrieval_001
+    category: machine_learning
+    query: "我是机器学习初学者，想系统学习机器学习基础和原理。"
+    gold_intent:
+      topics: ["Machine Learning"]
+      skills: []
+      prerequisites: []
+      framework_preferences: []
+      language: []
+      difficulty: beginner
+      learning_style: ["theory"]
+      time_budget: null
+      constraints: []
+    metadata_match_terms: ["machine learning"]
+    acceptable_resource_ids:
+      - "github:80990461"
+      - "github:291299282"
+      - "github:168725504"
+      - "github:298262517"
+      - "github:40380094"
+      - "github:81413897"
+    annotation_status: human_confirmed
+    annotation_note: "选择面向机器学习基础、原理、课程或从零实现的学习型资源；不把仅作为工具库或垂直应用的仓库自动视为 Gold。"
+
+  - case_id: retrieval_002
+    category: pytorch_deep_learning
+    query: "我会 Python，想学习 PyTorch 深度学习，希望有代码实践。"
+    gold_intent:
+      topics: ["Deep Learning"]
+      skills: ["Python"]
+      prerequisites: []
+      framework_preferences: ["PyTorch"]
+      language: []
+      difficulty: unknown
+      learning_style: ["hands_on"]
+      time_budget: null
+      constraints: []
+    metadata_match_terms: ["pytorch", "deep learning"]
+    acceptable_resource_ids:
+      - "github:171795571"
+      - "github:65600975"
+      - "github:290091948"
+      - "github:92265140"
+    annotation_status: human_confirmed
+    annotation_note: "资源需同时与 PyTorch、深度学习和代码实践有直接关系；优先教程、代码实现和官方框架代码。"
+
+  - case_id: retrieval_003
+    category: tensorflow_keras
+    query: "我想用 TensorFlow 或 Keras 学习深度学习，并跟着代码练习。"
+    gold_intent:
+      topics: ["Deep Learning"]
+      skills: []
+      prerequisites: []
+      framework_preferences: ["TensorFlow", "Keras"]
+      language: []
+      difficulty: unknown
+      learning_style: ["hands_on"]
+      time_budget: null
+      constraints: []
+    metadata_match_terms: ["tensorflow", "keras", "deep learning"]
+    acceptable_resource_ids:
+      - "github:33015583"
+      - "github:152166877"
+      - "github:72945141"
+      - "github:45986162"
+      - "github:61993351"
+    annotation_status: human_confirmed
+    annotation_note: "选择明确提供 TensorFlow/Keras 深度学习学习内容、教程或可跟练代码的资源。"
+
+  - case_id: retrieval_004
+    category: nlp_transformer
+    query: "我想理解自然语言处理和 Transformer 的基本原理。"
+    gold_intent:
+      topics: ["Natural Language Processing", "Transformer"]
+      skills: []
+      prerequisites: []
+      framework_preferences: []
+      language: []
+      difficulty: unknown
+      learning_style: ["theory"]
+      time_budget: null
+      constraints: []
+    metadata_match_terms: ["natural language processing", "nlp", "transformer"]
+    acceptable_resource_ids:
+      - "github:47184304"
+      - "github:101138315"
+      - "github:655099582"
+      - "github:1185590488"
+    annotation_status: human_confirmed
+    annotation_note: "选择能合理支持 NLP/Transformer 学习或教程路径的资源；不因仓库仅包含 transformer 词汇而自动判为 Gold。"
+
+  - case_id: retrieval_005
+    category: llm_rag
+    query: "我会 Python，想学习大语言模型和 RAG，并做一个实践项目。"
+    gold_intent:
+      topics: ["Large Language Models", "RAG"]
+      skills: ["Python"]
+      prerequisites: []
+      framework_preferences: []
+      language: []
+      difficulty: unknown
+      learning_style: ["hands_on", "project_based"]
+      time_budget: null
+      constraints: []
+    metadata_match_terms: ["large language model", "llm", "rag", "retrieval augmented generation"]
+    acceptable_resource_ids:
+      - "github:655099582"
+      - "github:671064065"
+      - "github:579082810"
+      - "github:668195240"
+      - "github:669879380"
+      - "github:866513204"
+      - "github:1003143578"
+    annotation_status: human_confirmed
+    annotation_note: "覆盖 LLM 学习、RAG 框架/教程和项目实践；优先能够形成实际 hands-on/project-based 路径的资源。"
+
+  - case_id: retrieval_006
+    category: computer_vision
+    query: "我是初学者，想学习计算机视觉基础。"
+    gold_intent:
+      topics: ["Computer Vision"]
+      skills: []
+      prerequisites: []
+      framework_preferences: []
+      language: []
+      difficulty: beginner
+      learning_style: []
+      time_budget: null
+      constraints: []
+    metadata_match_terms: ["computer vision"]
+    acceptable_resource_ids:
+      - "github:5108051"
+      - "github:170161374"
+      - "github:567848636"
+      - "github:101138315"
+      - "github:152166877"
+      - "github:168725504"
+    annotation_status: human_confirmed
+    annotation_note: "面向初学者，选择计算机视觉基础、教程、课程或实践型资源，避免只覆盖单一高级子问题的仓库。"
+
+  - case_id: retrieval_007
+    category: vision_transformer
+    query: "我想用 PyTorch 学习 Vision Transformer，并阅读代码实现。"
+    gold_intent:
+      topics: ["Vision Transformer"]
+      skills: []
+      prerequisites: []
+      framework_preferences: ["PyTorch"]
+      language: []
+      difficulty: unknown
+      learning_style: ["hands_on"]
+      time_budget: null
+      constraints: []
+    metadata_match_terms: ["vision transformer", "vit", "pytorch"]
+    acceptable_resource_ids:
+      - "github:300996055"
+      - "github:351432397"
+      - "github:168799526"
+      - "github:290091948"
+    annotation_status: human_confirmed
+    annotation_note: "必须与 Vision Transformer 和 PyTorch 代码实现有直接关系；优先实现仓库和带注释代码。"
+
+  - case_id: retrieval_008
+    category: diffusion_generative_ai
+    query: "我想通过代码实践学习 Diffusion Models 和生成式 AI。"
+    gold_intent:
+      topics: ["Diffusion Models", "Generative AI"]
+      skills: []
+      prerequisites: []
+      framework_preferences: []
+      language: []
+      difficulty: unknown
+      learning_style: ["hands_on"]
+      time_budget: null
+      constraints: []
+    metadata_match_terms: ["diffusion", "generative ai", "generative artificial intelligence"]
+    acceptable_resource_ids:
+      - "github:498011141"
+      - "github:527591471"
+      - "github:589831718"
+      - "github:545814405"
+      - "github:547725599"
+    annotation_status: human_confirmed
+    annotation_note: "选择与 diffusion / Stable Diffusion / generative image 实践直接相关的代码或教程资源。"
+
+  - case_id: retrieval_009
+    category: reinforcement_learning
+    query: "我是初学者，想学习强化学习的核心概念和示例。"
+    gold_intent:
+      topics: ["Reinforcement Learning"]
+      skills: []
+      prerequisites: []
+      framework_preferences: []
+      language: []
+      difficulty: beginner
+      learning_style: ["hands_on"]
+      time_budget: null
+      constraints: []
+    metadata_match_terms: ["reinforcement learning", "rl"]
+    acceptable_resource_ids:
+      - "github:522133400"
+      - "github:102904613"
+      - "github:290091948"
+      - "github:90433420"
+      - "github:152166877"
+    annotation_status: human_confirmed
+    annotation_note: "同时覆盖强化学习核心概念、教程和代码示例，适合 beginner + hands-on 需求。"
+
+  - case_id: retrieval_010
+    category: mlops_deployment
+    query: "我想通过完整项目学习 MLOps 和机器学习模型部署。"
+    gold_intent:
+      topics: ["MLOps", "Machine Learning Deployment"]
+      skills: []
+      prerequisites: []
+      framework_preferences: []
+      language: []
+      difficulty: unknown
+      learning_style: ["project_based"]
+      time_budget: null
+      constraints: []
+    metadata_match_terms: ["mlops", "machine learning deployment", "model deployment"]
+    acceptable_resource_ids:
+      - "github:292374787"
+      - "github:531547781"
+      - "github:419662458"
+      - "github:144863525"
+      - "github:156157055"
+    annotation_status: human_confirmed
+    annotation_note: "选择能够支持 MLOps、生产级 ML、模型部署与完整项目学习路径的资源。"

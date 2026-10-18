@@ -1,0 +1,29 @@
+curation_manifest_version: "1.0.0"
+manifest_id: "summer_s35_stage_c_final_v1"
+
+input:
+  raw_run_id: "a2aa04a6225e406faeb28cfcfe5d6c29"
+  resource_build_id: "build_4294058f35714562"
+
+decision_scope: "exclude_only"
+
+exclusions:
+  - resource_id: "github:132750724"
+    reason_code: "out_of_domain_general_programming"
+    reason: "General programming anthology; AI/ML content is incidental."
+
+  - resource_id: "github:21737465"
+    reason_code: "out_of_domain_generic_aggregation"
+    reason: "Generic cross-domain resource index rather than an AI/ML learning resource."
+
+  - resource_id: "github:266417772"
+    reason_code: "out_of_domain_job_listing"
+    reason: "Internship listing rather than a learning resource."
+
+  - resource_id: "github:39464018"
+    reason_code: "out_of_domain_bi_visualization"
+    reason: "Business intelligence and visualization platform without a primary AI/ML learning scope."
+
+  - resource_id: "github:60493101"
+    reason_code: "out_of_domain_software_interview"
+    reason: "General software-engineering interview curriculum rather than AI/ML learning material."

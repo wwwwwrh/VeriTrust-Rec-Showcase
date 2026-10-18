@@ -1,0 +1,54 @@
+.env
+.venv/
+.conda/
+# Local model weights belong to Ollama, not this repository.
+*.gguf
+*.safetensors
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest-tmp/
+pytest_work_wrh/
+pytest_s2_wrh/
+pytest_s3_wrh/
+pytest_local_s35/
+.codex-pytest-tmp/
+.codex-pytest-tmp-s35/
+data/.resource-staging/
+data/s35/stages/
+data/.evidence-staging/
+# Phase 3 outputs are reproducible from the pinned Phase 1/2 inputs.
+data/evidence/
+data/metadata/evidence_build_manifest.json
+data/quarantine/evidence/
+data/review/evidence/
+data/reports/evidence_corpus_quality.json
+data/reports/evidence_corpus_report.md
+data/reports/sample_evidence_documents.jsonl
+data/reports/sample_evidence_chunks.jsonl
+# Phase 2 outputs are reproducible from the frozen raw run and curation manifest.
+data/metadata/build_manifest.json
+data/processed/resource_aliases.jsonl
+data/processed/resource_provenance.jsonl
+data/processed/resources.jsonl
+data/processed/resources.parquet
+data/quarantine/failed_parse.jsonl
+data/quarantine/invalid_schema.jsonl
+data/reports/resource_dataset_quality.json
+data/reports/resource_dataset_report.md
+data/reports/resource_dataset_summary.csv
+data/reports/resource_dataset_validation.json
+data/reports/sample_resources.jsonl
+data/review/duplicate_candidates.jsonl
+data/review/low_relevance.jsonl
+data/reports/s3_5_expansion_quality.json
+data/reports/s3_5_resource_expansion_report.md
+data/review/expansion/
+data/raw/
+data/failed_fetches.jsonl
+cache/
+logs/
+*.log
+evaluation/results/
+# Private release audits are kept outside the repository, never published.
+docs/public-release/

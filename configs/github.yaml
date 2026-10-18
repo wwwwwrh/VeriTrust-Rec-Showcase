@@ -1,0 +1,101 @@
+github:
+  api_base_url: "https://api.github.com"
+  sort: "stars"
+  order: "desc"
+  max_repos_per_query: 10
+  max_total_repos: 20
+  per_page: 10
+  fetch_readme: true
+  timeout_seconds: 20
+  max_retries: 3
+  backoff_seconds: 1.0
+  rate_limit_max_wait_seconds: 300
+  cache_enabled: true
+  query_groups:
+    core_ml:
+      - "topic:machine-learning"
+      - "topic:deep-learning"
+    frameworks:
+      - "topic:pytorch"
+      - "topic:tensorflow"
+      - "topic:scikit-learn"
+    nlp_llm:
+      - "topic:natural-language-processing"
+      - "topic:large-language-models"
+      - "topic:transformers"
+    vision:
+      - "topic:computer-vision"
+      - "topic:image-classification"
+    reinforcement_learning:
+      - "topic:reinforcement-learning"
+    generative_ai:
+      - "topic:generative-ai"
+      - "topic:stable-diffusion"
+    data_scientific:
+      - "topic:data-science"
+      - "topic:scientific-computing"
+    mlops:
+      - "topic:mlops"
+      - "topic:model-deployment"
+    education:
+      - "machine learning tutorial in:name,description,readme"
+      - "deep learning course in:name,description,readme"
+  profiles:
+    baseline_20:
+      dataset_purpose: "phase_0_1_pipeline_validation"
+      query_groups: [core_ml, frameworks, nlp_llm]
+      group_shares: {core_ml: 0.40, frameworks: 0.35, nlp_llm: 0.25}
+      target_total: 20
+      discovery_cap: 50
+      max_repos_per_query: 10
+      per_page: 10
+      requires_token: false
+      preflight_rate_limit: false
+    stage_a_55:
+      dataset_purpose: "summer_s3_5_stage_a"
+      query_groups: [core_ml, frameworks, nlp_llm, vision, reinforcement_learning, generative_ai, data_scientific, mlops, education]
+      group_shares: {core_ml: 0.16, frameworks: 0.14, nlp_llm: 0.14, vision: 0.11, reinforcement_learning: 0.07, generative_ai: 0.10, data_scientific: 0.09, mlops: 0.09, education: 0.10}
+      target_total: 55
+      discovery_cap: 120
+      max_repos_per_query: 30
+      per_page: 30
+      requires_token: true
+      preflight_rate_limit: true
+    stage_b_105:
+      dataset_purpose: "summer_s3_5_stage_b"
+      query_groups: [core_ml, frameworks, nlp_llm, vision, reinforcement_learning, generative_ai, data_scientific, mlops, education]
+      group_shares: {core_ml: 0.16, frameworks: 0.14, nlp_llm: 0.14, vision: 0.11, reinforcement_learning: 0.07, generative_ai: 0.10, data_scientific: 0.09, mlops: 0.09, education: 0.10}
+      target_total: 105
+      discovery_cap: 220
+      max_repos_per_query: 30
+      per_page: 30
+      requires_token: true
+      preflight_rate_limit: true
+    stage_c_205:
+      dataset_purpose: "summer_s3_5_stage_c"
+      query_groups: [core_ml, frameworks, nlp_llm, vision, reinforcement_learning, generative_ai, data_scientific, mlops, education]
+      group_shares: {core_ml: 0.16, frameworks: 0.14, nlp_llm: 0.14, vision: 0.11, reinforcement_learning: 0.07, generative_ai: 0.10, data_scientific: 0.09, mlops: 0.09, education: 0.10}
+      query_overrides:
+        data_scientific:
+          - "topic:data-science topic:machine-learning"
+          - "topic:scientific-computing topic:machine-learning"
+          - "machine learning data science in:name,description"
+        education:
+          - "topic:machine-learning topic:tutorial"
+          - "topic:deep-learning topic:course"
+          - "topic:llm topic:tutorial"
+          - "pytorch examples in:name,description"
+      target_total: 205
+      discovery_cap: 400
+      max_repos_per_query: 30
+      per_page: 30
+      requires_token: true
+      preflight_rate_limit: true
+paths:
+  raw_root: "data/raw/github"
+  cache_root: "cache/github"
+  failed_fetches: "data/failed_fetches.jsonl"
+  logs_root: "logs"
+versions:
+  collector_version: "0.2.0"
+  schema_version: "1.0.0"

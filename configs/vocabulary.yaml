@@ -1,0 +1,22 @@
+domain_relevance:
+  terms:
+    - ai
+    - artificial intelligence
+    - machine learning
+    - deep learning
+    - pytorch
+    - tensorflow
+    - transformer
+    - llm
+    - nlp
+    - computer vision
+    - reinforcement learning
+  weights:
+    topics: 0.60
+    description: 0.30
+    readme: 0.10
+normalization:
+  topics: {}
+  frameworks:
+    torch: PyTorch
+    pytorch: PyTorch

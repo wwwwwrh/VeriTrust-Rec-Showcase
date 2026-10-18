@@ -1,0 +1,10 @@
+name: veritrust-rec
+# Compatible with Anaconda or Miniconda; use Anaconda's bundled conda command
+# to create this Python 3.11 environment.
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - -r requirements.txt

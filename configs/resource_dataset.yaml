@@ -1,0 +1,32 @@
+dataset:
+  schema_version: "0.1.0"
+  record_version: "v0.1.0"
+  normalizer_version: "v0.1.1"
+  dataset_scale: "summer_s3_5_bounded_scale"
+  reference_time: "2026-09-02T00:00:00Z"
+  random_seed: 42
+  activity_tau_days: 180
+  freshness_tau_days: 365
+  near_duplicate_threshold: 0.95
+  official_github_organizations: []
+  important_fields:
+    - resource_id
+    - url
+    - source_id
+    - source_type
+    - description
+    - language
+    - topics
+  paths:
+    processed_root: "data/processed"
+    quarantine_root: "data/quarantine"
+    review_root: "data/review"
+    metadata_root: "data/metadata"
+    reports_root: "data/reports"
+source_reliability_priors:
+  official_project: 1.00
+  official_documentation: 1.00
+  university: 0.95
+  major_education_platform: 0.85
+  community: 0.70
+  unknown: 0.40

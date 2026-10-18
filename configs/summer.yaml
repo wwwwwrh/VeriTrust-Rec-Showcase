@@ -1,0 +1,99 @@
+config_version: v0.3.0
+
+paths:
+  resources: data/processed/resources.jsonl
+  resource_manifest: data/metadata/build_manifest.json
+  resource_provenance: data/processed/resource_provenance.jsonl
+  evidence_documents: data/evidence/documents.jsonl
+  evidence_chunks: data/evidence/chunks.jsonl
+  evidence_manifest: data/metadata/evidence_build_manifest.json
+
+evidence_compatibility:
+  evidence_schema_versions: ["0.1.0"]
+  normalizer_versions: ["v0.1.0"]
+  markdown_parser_versions: ["v0.1.0"]
+  chunker_versions: ["v0.1.1"]
+  effective_config_hashes: []
+
+retrieval:
+  top_k: 5
+
+evidence:
+  top_k_per_claim: 3
+  metadata_priority_bonus: 0.25
+
+verification:
+  maintenance_max_age_days: 730
+  supported_metadata_score: 0.95
+  supported_readme_score: 0.85
+  contradicted_score: 0.95
+  unknown_related_score: 0.25
+  open_source_spdx_ids:
+    - MIT
+    - Apache-2.0
+    - BSD-2-Clause
+    - BSD-3-Clause
+    - GPL-2.0
+    - GPL-3.0
+    - LGPL-2.1
+    - LGPL-3.0
+    - AGPL-3.0
+    - MPL-2.0
+    - ISC
+    - Unlicense
+    - CC0-1.0
+
+confidence:
+  w_retrieval: 0.20
+  w_coverage: 0.30
+  w_verification: 0.35
+  w_kg_support: 0.10
+  w_source_reliability: 0.05
+  high_threshold: 0.80
+  low_threshold: 0.50
+
+ranking:
+  w_relevance: 0.60
+  w_confidence: 0.40
+
+abstention:
+  confidence_threshold: 0.50
+  abstain_on_contradiction: true
+
+logging:
+  save_sessions: true
+  output_path: logs/summer/sessions.jsonl
+
+llm:
+  backend: ollama
+  model: qwen3:8b
+  base_url: http://localhost:11434
+  timeout_seconds: 60
+  temperature: 0.0
+  context_length: 4096
+  max_tokens: 512
+  thinking: false
+  max_retries: 1
+  prompt_path: configs/prompts.yaml
+
+generation:
+  enabled: true
+  temperature: 0.2
+  context_length: 4096
+  max_tokens: 768
+  timeout_seconds: 60
+  max_retries: 1
+  thinking: false
+  max_claims_per_resource: 8
+  max_evidence_excerpts_per_claim: 2
+  claim_text_chars: 280
+  evidence_excerpt_chars: 320
+  max_input_chars: 7500
+
+ui:
+  default_language: zh
+  default_top_k: 5
+  min_top_k: 3
+  max_top_k: 10
+  debug: false
+  evidence_excerpt_chars: 500
